@@ -4,9 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import eric.config.ApplicationConfig;
-import eric.service.GreetingService;
 import eric.service.OutputService;
-import eric.service.TimeService;
 
 public class Application {
 
@@ -15,8 +13,8 @@ public class Application {
         OutputService outputService = context.getBean(OutputService.class);
 
         for (int i=0;i<5;i++){
-            outputService.generateOutput("Frank");
-            Thread.sleep(5000);
+            outputService.generateOutput();
+            Thread.sleep(5000); 
         }
     }
 }
