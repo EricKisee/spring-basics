@@ -21,6 +21,10 @@ public class ApplicationConfig {
     @Value("${app.name}")
     private String name;
 
+    //using Spring Expression Language SpEL
+    @Value("#{ new Boolean( environment['spring.profiles.active']!='dev')}")
+    private boolean is24;
+
     @Autowired
     private GreetingService greetingService;
 
@@ -28,16 +32,15 @@ public class ApplicationConfig {
     private TimeService timeService;
 
     @Bean
-    @Profile("!dev")
     public TimeService timeService () {
-        return new TimeService(true);
+        return new TimeService(is24);
     }
 
-    @Bean
-    @Profile("dev")
-    public TimeService timeService12 () {
-        return new TimeService(false);
-    }
+    // @Bean
+    // @Profile("dev")
+    // public TimeService timeService12 () {
+    //     return new TimeService(false);
+    // }
     
     @Bean
     public OutputService outputService () {
