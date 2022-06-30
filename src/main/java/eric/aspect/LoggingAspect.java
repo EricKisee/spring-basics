@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
     
+    //creating a pointcut
     @Pointcut("@annotation(Loggable)")
     public void executeLogging(){}
 
