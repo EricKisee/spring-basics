@@ -3,6 +3,7 @@ package eric.service;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import eric.aspect.Countable;
 import eric.aspect.Loggable;
 
 @Service
@@ -16,6 +17,7 @@ public class GreetingService {
     }
 
     @Loggable
+    @Countable
     public String getGreeting(String name){
         return greeting + " " + name;
     }

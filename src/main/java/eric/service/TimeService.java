@@ -7,6 +7,8 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import eric.aspect.Countable;
+
 @Service
 public class TimeService {
     private static final DateTimeFormatter FORMATTER_24 = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -19,7 +21,7 @@ public class TimeService {
         super();
     }
 
-
+    @Countable
     public String getCurrentTime(){
         LocalDateTime now = LocalDateTime.now();
         if (is24) {
